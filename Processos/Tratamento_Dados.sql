@@ -51,3 +51,24 @@ WHERE alt IS NULL OR alt = '';
 select * from drivers_db;
 select * from circuits_db;
 select * from races_db;
+
+-- Transforma vazios em NULL para data de nascimento
+UPDATE drivers_db SET date_of_birth = NULL WHERE date_of_birth  = '';
+UPDATE drivers_db SET number = NULL WHERE number = '\\N'; 
+UPDATE drivers_db SET number = NULL WHERE number = '';
+UPDATE drivers_db SET url = NULL WHERE url = '';
+
+-- Limpa colunas numéricas e de tempo
+UPDATE results_db SET number = NULL WHERE number = '';
+UPDATE results_db SET position = NULL WHERE position = '';
+UPDATE results_db SET milliseconds = NULL WHERE milliseconds = '';
+UPDATE results_db SET fastestlap = NULL WHERE fastestlap = '';
+UPDATE results_db SET rank = NULL WHERE rank = '';
+UPDATE results_db SET fastestlaptime = NULL WHERE fastestlaptime = '';
+UPDATE results_db SET fastestlapspeed = NULL WHERE fastestlapspeed = '';
+
+update drivers_db set date_of_birth = '1932-04-30' where driverId = 415;
+
+UPDATE drivers_db 
+SET date_of_birth = substr(date_of_birth, 7, 4) || '-' || substr(date_of_birth, 4, 2) || '-' || substr(date_of_birth, 1, 2)
+WHERE date_of_birth LIKE '%/%/%';
