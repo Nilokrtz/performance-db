@@ -1,8 +1,8 @@
-/*UPDATE races_db
+UPDATE races_db
 SET time = '12:00:00'
 WHERE time IS NULL
    OR time NOT LIKE '%:%';
-*/
+
 
 UPDATE drivers_db SET name = 'Häkkinen Mika' where driverId = 57; --
 UPDATE drivers_db SET name = 'Räikkönen Kimi' where "driverId" = 8; --
