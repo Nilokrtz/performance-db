@@ -154,7 +154,7 @@ BEGIN
     INTO qtd_vitorias
     FROM drivers_db d
     JOIN results_db r ON r.driverid = d.driverid
-    WHERE d.name = nome_piloto_param -- ERRO 1: Faltava o sinal de igual (=)
+    WHERE d.name = nome_piloto_param 
       AND r.position = 1;
 
     IF qtd_vitorias = 0 THEN
@@ -196,7 +196,7 @@ BEGIN
     SELECT COUNT(*)
     INTO total_corridas
     FROM results_db res
-    JOIN races_db r ON r.raceid = res.raceid -- Corrigido typo: raceld -> raceid
+    JOIN races_db r ON r.raceid = res.raceid 
     JOIN seasons_db s ON r.seasonid = s.seasonid
     WHERE s.year = ano_param AND res.driverid = v_driverid;
 
@@ -308,7 +308,7 @@ BEGIN
     SELECT COALESCE(SUM(res.points), 0)
     INTO total_pontos
     FROM results_db res
-    JOIN drivers_db d ON res.driverid = d.driverid -- Link via Driver
+    JOIN drivers_db d ON res.driverid = d.driverid 
     JOIN races_db r ON r.raceid = res.raceid
     JOIN seasons_db s ON r.seasonid = s.seasonid
     WHERE s.year = ano_param AND d.constructorid = v_equipe_id;
@@ -333,7 +333,7 @@ BEGIN
     INTO total_corridas
     FROM results_db res
     JOIN drivers_db d ON res.driverid = d.driverid
-    JOIN races_db r ON r.raceid = res.raceid -- Corrigido typo raceI
+    JOIN races_db r ON r.raceid = res.raceid 
     JOIN seasons_db s ON r.seasonid = s.seasonid
     WHERE s.year = ano_param AND d.constructorid = v_equipe_id;
 
