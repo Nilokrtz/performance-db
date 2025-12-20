@@ -110,10 +110,6 @@ pgloader source.db postgresql://user:pass@localhost/target_db
 
 ## Equipe
 
-Projeto desenvolvido por alunos e monitores da disciplina de Banco de Dados.
+Projeto desenvolvido por Caio Chagas, Gabriel Vittorazzi, Giulia Munis, Maria Clara e Nilo Gabriel para a disciplina de Banco de Dados 2.
 
 ---
-
-**Última atualização**: Dezembro 2024
-
-Para dúvidas ou sugestões, abra uma issue ou entre em contato com os mantenedores do projeto.
